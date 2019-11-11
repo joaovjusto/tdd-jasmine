@@ -1,35 +1,5 @@
 MathUtils = function(){};
 
-MathUtils.prototype.sum = function(number1,number2){
-    return number1+number2;
-}
-
-MathUtils.prototype.minus = function(number1,number2){
-    return number1-number2;
-}
-
-MathUtils.prototype.multiply = function(number1, number2) {
-    return number1 * number2;
-}
- 
-MathUtils.prototype.divide = function(number1, number2) {
-    return number1 / number2;
-}
- 
-MathUtils.prototype.average = function(number1, number2) {
-    return (number1 + number2) / 2;
-}
- 
-MathUtils.prototype.factorial = function(number) {
-    if (number < 0) {
-        throw new Error("There is no factorial for negative numbers");
-    } else if (number == 1 || number == 0) {
-        return 1;
-    } else {
-        return number * this.factorial(number - 1);
-    }
-}
-
 
 MathUtils.prototype.first = function(number1, number2) {
     // Check if is ímpar
@@ -37,8 +7,10 @@ MathUtils.prototype.first = function(number1, number2) {
         let resultado = number1 * number2;
         if(resultado > 10) {
             throw new Error(resultado + " 2 verdadeiros")
+            console.info(resultado + " 2 verdadeiros")
         }else {
             resultado = resultado + 10;
+            console.info(resultado + " 1 verdadeiro, 1 falso");
             throw new Error(resultado + " 1 verdadeiro, 1 falso");
         }
     }else {
@@ -46,8 +18,10 @@ MathUtils.prototype.first = function(number1, number2) {
 
         if(resultado > 5) {
             resultado = resultado + 5;
+            console.info(resultado + " 1 falso, 1 verdadeiro");
             throw new Error(resultado + " 1 falso, 1 verdadeiro");
         }else {
+            console.info(resultado + " 2 falsos");
             throw new Error(resultado + " 2 falsos");
         }
     }
@@ -58,24 +32,24 @@ MathUtils.prototype.second = function(lados, lado1, lado2, lado3) {
         let tipo = (lado1 === lado2 && lado2 === lado3) && 'equilateral' ||
         (lado1 === lado2 || lado1 === lado3 || lado2 === lado3) && 'isosceles' ||
         'scalene';
-        console.log("É triangulo")
+        console.info("É triangulo")
         let perimetro = lado1 + lado2 + lado3;
-        console.log(perimetro);
+        console.info(perimetro);
     }else {
         if(lados == 4) {
             if(lado1 == lado2 == lado3) {
-                console.log("É quadrado");
+                console.info("É quadrado");
                 let perimetro = lado1 + lado2 + lado3;
-                console.log(perimetro);
+                console.info(perimetro);
             }else {
-                console.log("Tem quatro lados");
+                console.info("Tem quatro lados");
                 let perimetro = lado1 + lado2 + lado3;
-                console.log(perimetro);
+                console.info(perimetro);
             }
         }else {
-            console.log("Tem " + lados + " lados")
+            console.info("Tem " + lados + " lados")
             let perimetro = lado1 + lado2 + lado3;
-            console.log(perimetro);
+            console.info(perimetro);
         }
     }
 }
@@ -83,12 +57,12 @@ MathUtils.prototype.second = function(lados, lado1, lado2, lado3) {
 MathUtils.prototype.third = function(angulo) {
     if(angulo > 90) {
         angulo = Math.sin(angulo);
-        console.log(angulo);
+        console.info(angulo);
     }else {
         angulo = Math.cos(angulo);
-        console.log(angulo);
+        console.info(angulo);
     }
     if(Math.tan(angulo) < 1 || Math.tan(angulo) > 1) {
-        console.log(Math.tan(angulo))
+        console.info(Math.tan(angulo))
     }
 }
